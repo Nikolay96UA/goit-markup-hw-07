@@ -14,13 +14,12 @@
 /* оформлення тіла сайту*/
 
 body {
-  font-family: 'Roboto', sans-serif;  
+  font-family: 'Roboto', sans-serif;
   color: var(--text-page);
   background-color: var(--backgraund-body);
   font-size: 14px;
   letter-spacing: 0.03em;
 }
-
 
 h1,
 h2,
@@ -53,7 +52,10 @@ button {
   list-style: none;
 }
 
-
+.section-padding {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
 
 /* Логотип */
 .nav {
@@ -83,22 +85,21 @@ button {
   line-height: 1.2;
 }
 
-.logo-web {
+.logo__web {
   color: var(--hover-focus-color);
 }
 
 /* Навігація */
-.nav-list {
+.nav__site {
   display: flex;
-  
 }
 
 /* один зі способів прибирати крайній margin*/
-.nav-list .nav-link:not(:last-child) {
+.nav__site .nav__list:not(:last-child) {
   margin-right: 50px;
 }
 
-.site-nav {
+.nav__link {
   position: relative;
 
   display: block;
@@ -111,23 +112,22 @@ button {
   line-height: 1.14;
   letter-spacing: 0.02em;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
 }
 
-.site-nav:hover,
-.site-nav:focus {
+.nav__link:hover,
+.nav__link:focus {
   color: var(--hover-focus-color);
 }
 
 /* розмішення декоративної лінії під елементом навігації */
-.site-nav::after{
+.nav__link::after {
   content: '';
   width: 100%;
   height: 4px;
-  display: block;  
+  display: block;
   background-color: var(--hover-focus-color);
   border-radius: 2px;
- 
+
   position: absolute;
   left: 0;
   bottom: 0;
@@ -136,52 +136,48 @@ button {
   z-index: 4;
 }
 
-.site-nav:hover::after{
+.nav__link:hover::after {
   opacity: 1;
 }
 
-.active-pages::after{
+.nav__link--active::after {
   content: '';
   width: 100%;
   height: 4px;
-  display: block;  
+  display: block;
   background-color: var(--hover-focus-color);
   border-radius: 2px;
- 
+
   position: absolute;
   left: 0;
   bottom: 0;
-  opacity: 1; 
+  opacity: 1;
 }
 
-.active-pages {
-  color: var(--hover-focus-color); 
+.nav__link--active {
+  color: var(--hover-focus-color);
 }
 
-.section {
-  padding-top: 94px;
-  padding-bottom: 94px;
-}
 /* Контакти */
-.socials-nav {
+
+.socials {
   display: flex;
   margin-left: auto;
 }
 
 /* один зі способів прибирати крайній margin*/
-.socials-nav .socials-link + .socials-link {
+.socials .socials__list + .socials__list {
   margin-left: 50px;
 }
 
-
-.icon-social {
+.social__icon {
   display: inline;
   margin-right: 11px;
   fill: currentColor;
 }
 
-.socials {
-  display:flex;
+.socials__link {
+  display: flex;
   align-items: center;
 
   color: var(--text-page);
@@ -194,13 +190,23 @@ button {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.socials:hover,
-.socials:focus {
+.socials__link:hover,
+.socials__link:focus {
   color: var(--hover-focus-color);
-  
 }
 
 /* Герой */
+.overlay {
+  height: 600px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--footer-backgraund);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/hero-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .hero {
   text-align: center;
@@ -208,21 +214,7 @@ button {
   padding-bottom: 200px;
 }
 
-.overlay{
-  height: 600px;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--footer-backgraund);
-  background-image: 
-  linear-gradient(
-  rgba(47, 48, 58, 0.4),
-  rgba(47, 48, 58, 0.4)), url(../images/hero-img.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.hero-title {
+.hero__title {
   margin-top: 0;
   margin-bottom: 30px;
   width: 696px;
@@ -240,7 +232,7 @@ button {
 
 /* кнопка героя */
 
-.hero-button {
+.hero__button {
   width: 216px;
   height: 50px;
   border: 1px solid transparent;
@@ -256,8 +248,8 @@ button {
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-button:hover,
-.hero-button:focus {
+.hero__button:hover,
+.hero__button:focus {
   background-color: var(--hover-focus-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
@@ -265,17 +257,17 @@ button {
 /* модальне вікно */
 
 /* не відображає модальне вікно та дозволяє клік через модальне вікно */
-.backdrop.is-hidden{
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.backdrop{
+.backdrop {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 2;
-  
+
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
@@ -292,49 +284,47 @@ button {
   min-width: 528px;
   min-height: 581px;
   background-color: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px; 
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
-
-.close-modal{
+.modal__close {
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1) ;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
   position: absolute;
   right: 0px;
   top: 0px;
   padding: 0 0;
-  
+
   background: none;
   margin-right: 8px;
   margin-top: 8px;
 }
 
-.close-svg{
+.modal__icon-close {
   position: absolute;
   top: 15px;
   left: 15px;
   transform: translate(-57%, -60%);
-   
-  fill:#000000;
+
+  fill: #000000;
 }
 
-.close-modal:hover .close-svg{
-  fill:var(--hover-focus-color)
+.modal__close:hover .modal__icon-close {
+  fill: var(--hover-focus-color);
 }
-
-
 
 /* Форма */
 
-.modal-form-conteiner{
-  padding:0 40px 0 40px ;
+.modal-form__conteiner {
+  padding: 0 40px 0 40px;
 }
 
-.modal-title{
+.modal-form__title {
   margin-top: 40px;
   margin-bottom: 12px;
 
@@ -345,48 +335,45 @@ button {
   color: var(--title);
 }
 
-.label-modal{
+.modal-form__label {
   margin-bottom: 4px;
   display: flex;
 }
 
-.input-modal{
+.modal-form__input {
   padding: 11px 42px 11px 42px;
   display: block;
-  width:100%;
+  width: 100%;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
 
-.modal-form-conteiner .submit:not(:last-child){
+.modal-form__conteiner .modal-form__submit:not(:last-child) {
   margin-bottom: 10px;
-} 
-
-
-.submit{
-  position: relative;
-  
 }
 
-.icon-form{
+.modal-form__submit {
+  position: relative;
+}
+
+.modal-form__icon {
   position: absolute;
   top: 11px;
   left: 12px;
-  
 }
 
-.input-modal:focus{
-  outline: none; 
-  border:solid 1px var(--hover-focus-color);  
+.modal-form__input:focus {
+  outline: none;
+  border: solid 1px var(--hover-focus-color);
 }
 
-.input-modal:focus-within + .icon-form {
-  fill:var(--hover-focus-color);
+.modal-form__input:focus-within + .modal-form__icon {
+  fill: var(--hover-focus-color);
 }
 
 /* Коментар форми */
 
-.comment-modal{
+.modal-form__comment {
   padding-top: 12px;
   padding-left: 16px;
 
@@ -398,18 +385,17 @@ button {
   border-radius: 4px;
 }
 
-
-.comment-modal:focus{
-  outline: none; 
-  border:solid 1px var(--hover-focus-color);
+.modal-form__comment:focus {
+  outline: none;
+  border: solid 1px var(--hover-focus-color);
 }
 
 /* Checkbox погодження */
 
-.modal-checkbox{
- display: flex;
- align-items: center;
- margin-top: 25px;
+.modal-form__label-checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
   margin-left: 54px;
   font-size: 14px;
   line-height: 1.71;
@@ -417,45 +403,40 @@ button {
   color: #757575;
 }
 
-.terms{
+.modal-form__terms {
   color: var(--hover-focus-color);
 }
 
-.checkbox{
+.modal-form__checkbox {
   appearance: none;
   position: absolute;
 }
 
-.checkbox-conteiner{
-  margin-top: 25px;
-}
-
 /* кастом чекбокс */
-.icon-checkbox{
+.modal-form__icon-checkbox {
   margin-right: 8px;
   display: inline-block;
   width: 15px;
   height: 15px;
   border: solid 2px black;
   border-radius: 1px;
-  
 }
 
-.checkbox:checked + .icon-checkbox{
-  background-color:var(--hover-focus-color);
+.modal-form__checkbox:checked + .modal-form__icon-checkbox {
+  background-color: var(--hover-focus-color);
   background-image: url(../images/icon-check.svg);
   border-color: var(--hover-focus-color);
- background-size: contain; 
- background-origin: border-box;
+  background-size: contain;
+  background-origin: border-box;
 }
 
 /* кнопка відправки форми */
 
-.button-submit-form{
+.modal-form__button-submit {
   margin-top: 30px;
   width: 200px;
   height: 50px;
-  background: #2196F3;
+  background: #2196f3;
   border-color: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -464,8 +445,7 @@ button {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 /* Наші переваги и Наша команда*/
@@ -482,7 +462,7 @@ button {
   display: none;
 }
 
-.features-img{
+.features-img {
   margin-bottom: 30px;
 }
 
@@ -508,7 +488,6 @@ button {
 .works {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .works-img {
@@ -517,35 +496,30 @@ button {
   height: auto 0;
 }
 
-.works-list{
+.works-list {
   position: relative;
-
 }
-
-
 
 .works-title {
   position: absolute;
   transform: translateY(-100%);
-   width: 100%;
+  width: 100%;
   height: 70px;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color:var(--hero-text);
+  color: var(--hero-text);
   background-color: rgba(47, 48, 58, 0.8);
   text-align: center;
- 
+
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  
 }
-
 
 .works .works-list + .works-list {
   margin-left: 30px;
@@ -564,37 +538,35 @@ button {
   background-color: var(--backgraund-section);
 }
 
-.social-team{
+.social-team {
   display: flex;
   justify-content: center;
-  
 }
 
-
-.messenger-team{
-  display:flex;
+.messenger-team {
+  display: flex;
 }
 
-.social-links{
-  color:#AFB1B8;
+.social-links {
+  color: #afb1b8;
   display: flex;
   align-items: center;
   width: 44px;
   height: 44px;
   margin-top: 16px;
-  background-color:var(--backgraund-body);
+  background-color: var(--backgraund-body);
   border-radius: 50%;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links:hover,
 .social-links:focus {
-  color:var(--backgraund-body);
+  color: var(--backgraund-body);
   background-color: var(--hover-focus-color);
-  
 }
 
-.social-icon{
+.social-icon {
   margin-left: auto;
   margin-right: auto;
   fill: currentColor;
@@ -606,7 +578,8 @@ button {
 
 .team-container {
   background-color: var(--backgraund-body);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
@@ -646,48 +619,43 @@ button {
 
 /* Постійні клієнти */
 
-.clients{
+.clients {
   padding-top: 94px;
   padding-bottom: 94px;
 }
 
-.clients-link{
-  color:#AFB1B8;
+.clients-link {
+  color: #afb1b8;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 170px;
   height: 92px;
-  border: 1px solid #AFB1B8;
+  border: 1px solid #afb1b8;
   border-radius: 4px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-  
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
-.clients-link:focus{
-  color:var(--hover-focus-color);
+.clients-link:focus {
+  color: var(--hover-focus-color);
   border-color: var(--hover-focus-color);
 }
 
-.clients-logo{
+.clients-logo {
   margin-left: auto;
   margin-right: auto;
   fill: currentColor;
 }
 
-
-.clients-item{
+.clients-item {
   display: flex;
 }
 
-.clients-item .clients-list+ .clients-list{
+.clients-item .clients-list + .clients-list {
   margin-left: 30px;
 }
-
-
-
 
 /* Підвал */
 
@@ -732,61 +700,55 @@ button {
   margin-bottom: 9px;
 }
 
-
-
-.footer-messenger{
-  margin-left: 70px;  
+.footer-messenger {
+  margin-left: 70px;
 }
 
-.come{
+.come {
   margin-bottom: 20px;
   font-weight: 700;
   font-size: 14px;
-  line-height:1.14;
+  line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.messenger{
+.messenger {
   display: flex;
-  
 }
 
 .messenger .messenger-list + .messenger-list {
   margin-left: 10px;
 }
 
-.messenger-links{
-  color:#ffffff;
+.messenger-links {
+  color: #ffffff;
   display: flex;
   align-items: center;
   width: 44px;
   height: 44px;
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
 }
 
-.footer-icon{
+.footer-icon {
   margin-left: auto;
   margin-right: auto;
   fill: currentColor;
 }
 
 .messenger-links:hover,
-.messenger-links:focus{
+.messenger-links:focus {
   background-color: var(--hover-focus-color);
 }
 
-.footer-page{
+.footer-page {
   display: flex;
-  align-items: baseline; 
+  align-items: baseline;
 }
-
-
 
 /* Портфоліо */
 
@@ -814,14 +776,17 @@ button {
   line-height: 1.62;
 
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
 .filter-button:focus {
   color: var(--hero-text);
   background-color: var(--hover-focus-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* Портфоліо */
@@ -837,7 +802,6 @@ button {
 }
 
 .portfolio-list {
-  
   width: 370px;
   height: auto;
 
@@ -847,8 +811,9 @@ button {
 }
 
 .portfolio-list:hover,
-.portfolio-list:focus{
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+.portfolio-list:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-list:nth-child(3n) {
@@ -891,28 +856,26 @@ button {
   overflow: hidden;
 }
 
-.portfolio-overlay{
- 
+.portfolio-overlay {
   position: absolute;
   padding: 63px 24px;
   width: 100%;
   height: 100%;
   color: var(--hero-text);
-  background-color:rgba(33, 150, 243, 0.9);
+  background-color: rgba(33, 150, 243, 0.9);
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
-  
+
   opacity: 0;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
-  
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
- .portfolio-list:hover .portfolio-overlay {
- opacity: 1;
- transform: translateY(-100%);
+.portfolio-list:hover .portfolio-overlay {
+  opacity: 1;
+  transform: translateY(-100%);
 }
-
 
 /* Лого футер */
 .logo-footer {
@@ -927,17 +890,17 @@ button {
   text-decoration: none;
 }
 
-.logo-studio {
+.logo--studio-white {
   color: var(--hero-text);
 }
 
 /*  форма підписки */
-.form-footer{
+.form-footer {
   display: block;
   margin-left: 93px;
 }
 
-.input-footer{
+.input-footer {
   padding-left: 16px;
   padding-right: 12px;
 
@@ -953,16 +916,14 @@ button {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.input-footer::placeholder{
+.input-footer::placeholder {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
 }
 
-
-
-.title-input-footer{
+.title-input-footer {
   display: block;
   margin-bottom: 20px;
 
@@ -971,18 +932,16 @@ button {
   line-height: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-
-
-.button-form-footer{
-  display:flex;
+.button-form-footer {
+  display: flex;
   align-items: center;
   margin-left: 12px;
   width: 200px;
   height: 50px;
-  background-color:var(--hover-focus-color);
+  background-color: var(--hover-focus-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border-color: transparent;
@@ -991,23 +950,19 @@ button {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.icon-input{
+.icon-input {
   margin-left: 12px;
-  
 }
 
-.name-button-footer{
+.name-button-footer {
   padding-right: 10px;
   padding-left: 18px;
 }
 
-.submit-form{
+.submit-form {
   display: flex;
   align-items: center;
-
 }
-  
-
